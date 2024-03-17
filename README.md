@@ -40,3 +40,9 @@ The simulation of CVE identifier requests, registration, and disclosure will tra
 ## Architecture
 
 The current SCITT architecture and [SCRAPI specification](https://datatracker.ietf.org/doc/html/draft-ietf-scitt-scrapi-01) drafts presuppose a HTTP-based API for registration of Signed Statements and retrieval of Transparent Statements. This system will simulate the creation of a Append-only Log and this HTTP API by generating the backing content of the Append-only Log and a limited subset of API responses at build time, much like static site generators for different websites. An HTTP service can host the resulting content, be it [GitHub Pages](https://pages.github.com/) or [AWS S3](https://aws.amazon.com/s3/).
+
+## Acknowledgements
+
+I thank members of the IETF SCITT WG, the [scitt.io community], and all colleagues from NIST and the larger open-source community. You know who you are.
+
+This [architecture](#architecture) was inspired by Orie Steele's design with [endor](https://or13.github.io/endor/), so he deserves special praise after consulting me on reviving this approach.
