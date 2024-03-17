@@ -1,6 +1,6 @@
 # nvdts
 
-This code base is a proof-of-concept implementing one interpretation of the [SCITT architecture](https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/) and supporting IETF Internet Drafts and RFCs below to simulate [the CVE ecosystem, its process](https://www.cve.org/About/Process), and the [National Vulnerability Database](https://nvd.nist.gov/) in particular.
+This code base is a proof-of-concept implementing one interpretation of the [SCITT architecture](https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-06.html#name-terminology) and supporting IETF Internet Drafts and RFCs below to simulate [the CVE ecosystem, its process](https://www.cve.org/About/Process), and the [National Vulnerability Database](https://nvd.nist.gov/) in particular.
 
 ## Concepts and actors
 
@@ -17,8 +17,24 @@ Let's address each one of them one by one.
 
 ### SCITT Issuers are NVD CNAs
 
+
+
 ### SCITT Transparency Service Owners are NVD Staff
 
 ### SCITT Verifier Owners are community and industry service owners
 
 ### SCITT Auditors are System Auditors using NVD TS data
+
+### Simulated Process
+
+The simulation of CVE identifier requests, registration, and disclosure will transpose the [CVE reporting process](https://www.cve.org/About/Process) and NVD analysis into the high-level process workflow of SCITT transparency services, described below using the [current SCITT architecture terminology](https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-06.html#name-terminology).
+
+1. A security researcher determines there is vulnerability about software (an Artifact) they want to report, so they prepare a Statement about that Artifact to register with the CVE CNA (an Issuer).
+1. They submit the Statement about the the Artifact through the CNA service, which is an Issuer, signs it to make a Signed Statement in preparation for [registration](https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-06.html#name-registration-policies)
+1. The CVE Transparency Service receives the Signed Statement and verifies the Signed Statement's signature.
+1. After signature verification, the CVE Transparency Service validates the headers and payload content of the Signed Statement. 
+1. The service analyzes the Signed Statement after verification and validation to confirm the payload of the Signed Statements meets the CVE Transparency Service's current registration policy.
+1. After registration policy conformance and prior steps are successfully completed, the Signed Statement is registered to the Append-only Log of the CVE Transparency Service.
+1. The CVE Transparency Service returns a Receipt to the Issuer's automation system that polls the Transparency Service after the registration is complete and the Transparent Statement is now available and accessible on the Append-Only Log.
+1. Auditors can operate software to "replay" the CVE Transparency Service to confirm the proper operation of the service, ordering, and consistency of the Append-only Log's integrity.
+1. Operators of downstream services that enrich, analyze, and mix-in other data sources with the CVE data operate SCITT verifiers to analyze selected Transparent Statements of interest to their use case. They may use Subjects to filter the CVE Transparency Service and retrieve Transparent Statements about specific Artifacts, for example, specific versions of one or more software releases.
