@@ -15,11 +15,9 @@ With the SCITT architecture, there are several important roles for different peo
 
 Let's address each one of them one by one.
 
-### SCITT Issuers are NVD CNAs
+### SCITT Issuers are CVE CNAs
 
-
-
-### SCITT Transparency Service Owners are NVD Staff
+### SCITT Transparency Service Owners are CVE Program and NVD Staff
 
 ### SCITT Verifier Owners are community and industry service owners
 
