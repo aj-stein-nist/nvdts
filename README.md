@@ -1,6 +1,6 @@
 # nvdts
 
-This code base is a proof-of-concept implementing one interpretation of the [SCITT architecture](https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/) and supporting IETF Internet Drafts and RFCs below.
+This code base is a proof-of-concept implementing one interpretation of the [SCITT architecture](https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/) and supporting IETF Internet Drafts and RFCs below to simulate [the CVE ecosystem, its process](https://www.cve.org/About/Process), and the [National Vulnerability Database](https://nvd.nist.gov/) in particular.
 
 ## Concepts and actors
 
