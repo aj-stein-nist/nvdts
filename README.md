@@ -36,3 +36,7 @@ The simulation of CVE identifier requests, registration, and disclosure will tra
 1. The CVE Transparency Service returns a Receipt to the Issuer's automation system that polls the Transparency Service after the registration is complete and the Transparent Statement is now available and accessible on the Append-Only Log.
 1. Auditors can operate software to "replay" the CVE Transparency Service to confirm the proper operation of the service, ordering, and consistency of the Append-only Log's integrity.
 1. Operators of downstream services that enrich, analyze, and mix-in other data sources with the CVE data operate SCITT verifiers to analyze selected Transparent Statements of interest to their use case. They may use Subjects to filter the CVE Transparency Service and retrieve Transparent Statements about specific Artifacts, for example, specific versions of one or more software releases.
+
+## Architecture
+
+The current SCITT architecture and [SCRAPI specification](https://datatracker.ietf.org/doc/html/draft-ietf-scitt-scrapi-01) drafts presuppose a HTTP-based API for registration of Signed Statements and retrieval of Transparent Statements. This system will simulate the creation of a Append-only Log and this HTTP API by generating the backing content of the Append-only Log and a limited subset of API responses at build time, much like static site generators for different websites. An HTTP service can host the resulting content, be it [GitHub Pages](https://pages.github.com/) or [AWS S3](https://aws.amazon.com/s3/).
